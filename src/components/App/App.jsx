@@ -13,15 +13,19 @@ import Footer from '../Footer/Footer';
 
 const store = createStore(storeModel);
 
+const style = { width: '90%', margin: 'auto', backgroundColor: 'lightGrey' };
+
 function App() {
   return (
     <StoreProvider store={store}>
       <Header />
-      <Router>
-        <Route exact path='/' render={props => <Landing {...props} />} />
-        <Route exact path='/unauthorized' component={Unauthorized} />
-        <ProtectedRoute exact path='/dashboard' component={Dashboard} />
-      </Router>
+      <div className='container' style={style}>
+        <Router>
+          <Route exact path='/' render={props => <Landing {...props} />} />
+          <Route exact path='/unauthorized' component={Unauthorized} />
+          <ProtectedRoute exact path='/dashboard' component={Dashboard} />
+        </Router>
+      </div>
       <Footer />
     </StoreProvider>
   );
