@@ -1,20 +1,17 @@
 import React from 'react';
+import { useStoreState } from 'easy-peasy';
 
-const Dashboard = ({ handleLogout }) => {
+const Dashboard = () => {
+  const clips = useStoreState(state => state.clips);
+
   return (
     <div>
-      <header>
-        <h1>Web Clipboard</h1>
-        <p>user's e-mail</p>
-        <button onClick={handleLogout}>Logout</button>
-      </header>
-
       <h2>Dashboard</h2>
-      <p>Secret Page</p>
+      <p>Protected page</p>
+
+      <pre>{JSON.stringify(clips, null, 4)}</pre>
 
       <div className='pagination'>Pagination</div>
-
-      <footer>Footer</footer>
     </div>
   );
 };

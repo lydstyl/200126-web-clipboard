@@ -1,15 +1,17 @@
 import React from 'react';
+import { useStoreActions } from 'easy-peasy';
 import { Link } from 'react-router-dom';
 
-const Landing = props => {
+const Landing = () => {
+  const handleLogin = useStoreActions(actions => actions.user.handleLogin);
+
   return (
     <div>
       <h2>Landing</h2>
+
       <p>
         <Link to='/dashboard'>View Dashboard</Link>
       </p>
-      <p>Logged in status: {props.user}</p>
-      <button onClick={props.handleLogin}>Log In</button>
     </div>
   );
 };

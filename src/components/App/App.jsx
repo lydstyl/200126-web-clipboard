@@ -1,51 +1,29 @@
-import React, { useState } from 'react';
-
+import React from 'react';
+import { createStore, StoreProvider } from 'easy-peasy';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import storeModel from '../../storeModel';
+
+import Header from '../Header/Header';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import Unauthorized from '../Unauthorized/Unauthorized';
 import Landing from '../Landing/Landing';
+import Unauthorized from '../Unauthorized/Unauthorized';
 import Dashboard from '../Dashboard/Dashboard';
+import Footer from '../Footer/Footer';
+
+const store = createStore(storeModel);
 
 function App() {
-  const [user, setUser] = useState(false);
-
-  const handleLogin = e => {
-    e.preventDefault();
-    setUser(true);
-  };
-
-  const handleLogout = e => {
-    e.preventDefault();
-    setUser(false);
-  };
-
   return (
-    <div className='App'>
+    <StoreProvider store={store}>
+      <Header />
       <Router>
-        <Route
-          exact
-          path='/'
-          handleLogin={handleLogin}
-          render={props => (
-            <Landing
-              {...props}
-              user={user.toString()}
-              handleLogin={handleLogin}
-            />
-          )}
-        />
+        <Route exact path='/' render={props => <Landing {...props} />} />
         <Route exact path='/unauthorized' component={Unauthorized} />
-
-        <ProtectedRoute
-          exact
-          path='/dashboard'
-          user={user}
-          handleLogout={handleLogout}
-          component={Dashboard}
-        />
+        <ProtectedRoute exact path='/dashboard' component={Dashboard} />
       </Router>
-    </div>
+      <Footer />
+    </StoreProvider>
   );
 }
 

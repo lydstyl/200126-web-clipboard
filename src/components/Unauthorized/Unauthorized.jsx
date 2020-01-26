@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Unauthorized = () => {
   return (
     <div className='container'>
-      <div class='message'>
+      <div>
         <h1>403 - You Shall Not Pass</h1>
         <p>
           Uh oh, Gandalf is blocking the way!
