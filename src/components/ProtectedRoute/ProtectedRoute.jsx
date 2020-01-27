@@ -3,7 +3,7 @@ import { useStoreState } from 'easy-peasy';
 import { Route, Redirect } from 'react-router-dom';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-  const user = useStoreState(state => state.user.loggedIn);
+  const user = useStoreState(state => state.user.user.email);
 
   return (
     <Route

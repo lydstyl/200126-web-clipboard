@@ -2,17 +2,36 @@ import React from 'react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 
 const Header = () => {
-  const { loggedIn, email } = useStoreState(state => state.user);
+  const {
+    loading,
+    error,
+    user: { email }
+  } = useStoreState(state => state.user);
 
-  const { handleLogin, handleLogout } = useStoreActions(
+  const { signOut, signInWithEmailAndPassword } = useStoreActions(
     actions => actions.user
   );
+
+  const handleLogin = () => {
+    signInWithEmailAndPassword({ email: 'sam@gmail.com', password: '123456' });
+  };
+
+  const handleLogout = () => {
+    signOut();
+  };
+
+  if (error) {
+    console.log(error);
+    alert(error.message);
+  }
 
   return (
     <header>
       <h1>Web Clipboard</h1>
 
-      {loggedIn ? (
+      {loading && <p>LOADING ...</p>}
+
+      {email ? (
         <>
           <p>logged as : {email}</p>
 
