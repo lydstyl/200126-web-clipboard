@@ -22,7 +22,7 @@ const thunks = {
     actions.setLoading(false);
   }),
 
-  signOut: thunk(async (actions, payload) => {
+  signOut: thunk(async actions => {
     actions.setLoading(true);
 
     try {
