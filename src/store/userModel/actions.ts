@@ -1,6 +1,7 @@
 import { action } from 'easy-peasy';
+import { Actions, UserModel } from './index';
 
-const actions = {
+const actions: Actions = {
   setLoading: action((state, payload) => {
     state.loading = payload;
   }),
