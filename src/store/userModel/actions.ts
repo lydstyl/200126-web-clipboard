@@ -1,5 +1,5 @@
 import { action } from 'easy-peasy';
-import { Actions, UserModel } from './index';
+import { Actions } from './index';
 
 const actions: Actions = {
   setLoading: action((state, payload) => {

@@ -1,4 +1,4 @@
-import { Action, action } from 'easy-peasy';
+import { Action } from 'easy-peasy';
 import actions from './actions';
 import thunks from './thunks';
 
