@@ -2,7 +2,7 @@ import React from 'react';
 import { createStore, StoreProvider } from 'easy-peasy';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import storeModel from '../../store/storeModel';
+import storeModel from '../../store';
 
 import Header from '../Header/Header';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';

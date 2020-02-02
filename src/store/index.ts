@@ -1,4 +1,4 @@
-import userModel from './userModel/userModel';
+import userModel from './userModel';
 
 import clipModel, { ClipModel } from './clipModel';
 

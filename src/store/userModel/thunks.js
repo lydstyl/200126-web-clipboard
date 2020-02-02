@@ -5,6 +5,7 @@ import app from '../../firebase/firebase';
 const thunks = {
   createUserWithEmailAndPassword: thunk(async (actions, payload) => {
     actions.setLoading(true);
+
     try {
       const result = await app
         .auth()
@@ -39,6 +40,7 @@ const thunks = {
 
   signInWithEmailAndPassword: thunk(async (actions, payload) => {
     actions.setLoading(true);
+
     try {
       const result = await app
         .auth()
