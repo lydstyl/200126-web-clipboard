@@ -11,23 +11,26 @@ import Unauthorized from '../Unauthorized/Unauthorized';
 import Dashboard from '../Dashboard/Dashboard';
 import Footer from '../Footer/Footer';
 
-const store = createStore(storeModel);
+import StyledAppWrapper from './StyledAppWrapper';
+import StyledContainer from './style';
 
-const style = { width: '90%', margin: 'auto', backgroundColor: 'lightGrey' };
+const store = createStore(storeModel);
 
 function App() {
   return (
-    <StoreProvider store={store}>
-      <Header />
-      <div className='container' style={style}>
-        <Router>
-          <Route exact path='/' render={props => <Landing {...props} />} />
-          <Route exact path='/unauthorized' component={Unauthorized} />
-          <ProtectedRoute exact path='/dashboard' component={Dashboard} />
-        </Router>
-      </div>
-      <Footer />
-    </StoreProvider>
+    <StyledAppWrapper>
+      <StoreProvider store={store}>
+        <Header />
+        <StyledContainer>
+          <Router>
+            <Route exact path='/' render={props => <Landing {...props} />} />
+            <Route exact path='/unauthorized' component={Unauthorized} />
+            <ProtectedRoute exact path='/dashboard' component={Dashboard} />
+          </Router>
+        </StyledContainer>
+        <Footer />
+      </StoreProvider>
+    </StyledAppWrapper>
   );
 }
 

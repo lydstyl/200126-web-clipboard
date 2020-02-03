@@ -15,10 +15,10 @@ export interface Actions {
 }
 
 export interface UserModel {
-  loading?: boolean;
+  loading: boolean;
   loggedIn?: boolean;
-  error?: null | string;
-  user?: User;
+  error: null | string;
+  user: User;
 }
 
 const userModel: UserModel = {

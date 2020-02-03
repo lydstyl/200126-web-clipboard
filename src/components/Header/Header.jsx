@@ -1,6 +1,8 @@
 import React from 'react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 
+import StyledHeader from './style';
+
 const Header = () => {
   const {
     loading,
@@ -26,7 +28,7 @@ const Header = () => {
   }
 
   return (
-    <header>
+    <StyledHeader>
       <h1>Web Clipboard</h1>
 
       {loading && <p>LOADING ...</p>}
@@ -40,7 +42,7 @@ const Header = () => {
       ) : (
         <button onClick={handleLogin}>Log In</button>
       )}
-    </header>
+    </StyledHeader>
   );
 };
 
