@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 
+import { Link } from 'react-router-dom';
 import StyledHeader from './style';
 
 const Header = () => {
@@ -30,6 +31,10 @@ const Header = () => {
   return (
     <StyledHeader>
       <h1>Web Clipboard</h1>
+
+      <nav>
+        <Link to='/login'>Login</Link>
+      </nav>
 
       {loading && <p>LOADING ...</p>}
 

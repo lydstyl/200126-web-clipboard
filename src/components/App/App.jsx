@@ -8,6 +8,7 @@ import Header from '../Header/Header';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Landing from '../Landing/Landing';
 import Unauthorized from '../Unauthorized/Unauthorized';
+import Login from '../Login/Login';
 import Dashboard from '../Dashboard/Dashboard';
 import Footer from '../Footer/Footer';
 
@@ -20,14 +21,15 @@ function App() {
   return (
     <StyledAppWrapper>
       <StoreProvider store={store}>
-        <Header />
-        <StyledContainer>
-          <Router>
+        <Router>
+          <Header />
+          <StyledContainer>
             <Route exact path='/' render={props => <Landing {...props} />} />
             <Route exact path='/unauthorized' component={Unauthorized} />
+            <Route exact path='/login' component={Login} />
             <ProtectedRoute exact path='/dashboard' component={Dashboard} />
-          </Router>
-        </StyledContainer>
+          </StyledContainer>
+        </Router>
         <Footer />
       </StoreProvider>
     </StyledAppWrapper>
