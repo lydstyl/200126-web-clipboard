@@ -12,6 +12,7 @@ const StyledAppWrapper = styled.div`
   h2,
   h3 {
     font-family: 'Righteous';
+    text-align: center;
   }
 
   h1 {
